@@ -1,0 +1,16 @@
+body {
+    background: linear-gradient(90deg, #7436ca, #643ba7, #563d87)
+}
+
+.error {
+    margin-top: 5px;
+    background-color: red;
+    border: 1px solid red;
+    padding: .4rem;
+}
+.exito {
+    margin-top: 5px;
+    background-color: rgb(98, 255, 0);
+    border: 1px solid rgb(81, 255, 0);
+    padding: .4rem;
+}
