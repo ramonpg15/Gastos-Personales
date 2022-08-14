@@ -8,9 +8,18 @@ body {
     border: 1px solid red;
     padding: .4rem;
 }
+
 .exito {
     margin-top: 5px;
     background-color: rgb(98, 255, 0);
     border: 1px solid rgb(81, 255, 0);
     padding: .4rem;
+}
+
+#fecha {
+    text-align: center;
+    text-transform: uppercase;
+}
+input{
+    text-align: center;
 }
