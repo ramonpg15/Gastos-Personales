@@ -16,7 +16,6 @@ const listeners = () => {
     document.addEventListener('DOMContentLoaded', () => {
         cargaInicial()
         gastos = JSON.parse(localStorage.getItem('gastos')) || []
-        console.log('Gastos al inicio', gastos);
         mostrarHtml()
     })
     pasajeIda.addEventListener('blur', validarCampos)
@@ -41,8 +40,7 @@ const validarCampos = (e) => {
     }
     const valor = e.target.value
     if (valor.length > 0) {
-        btnBorrar.disabled = false
-        //Habilitar boton
+        btnBorrar.disabled = false;
     }
     else {
         btnEnviar.disabled = true
@@ -63,9 +61,6 @@ const enviarDatos = (e) => {
         pasajeRegreso: pasajeRegreso.value,
         otros: otros.value
     }
-    console.log('Fecha=========>', gasto.fecha);
-    console.log('fecha====================>', fecha);
-    console.log('gastos',gasto);
     mensaje('Registro agregado', 'exito')
     gastos = [...gastos, gasto]
     limpiarFormulario()
@@ -73,7 +68,6 @@ const enviarDatos = (e) => {
 }
 
 mostrarHtml = () => {
-    console.log('Desde mostrar HTML', gastos);
     limpiarHTML()
     if (gastos.length > 0) {
         gastos.forEach((gasto) => {
@@ -91,11 +85,6 @@ mostrarHtml = () => {
             pReg.textContent = `Camion de regreso: ${gasto.pasajeRegreso}`
             another.textContent = `Otros: ${gasto.otros}`
             div.classList.add('card', 'm-2')
-            // pIda.classList.add('list-group-item')
-            // pReg.classList.add('list-group-item')
-            // mIda.classList.add('list-group-item')
-            // mReg.classList.add('list-group-item')
-            // another.classList.add('list-group-item')
             fechaGasto.classList.add('badge', 'bg-success', 'p-2', 'fs-5')
             div.appendChild(fechaGasto)
             div.appendChild(pIda)
@@ -111,8 +100,6 @@ mostrarHtml = () => {
             span.textContent = `$ ${contador}`
             span.classList.add('badge', 'bg-primary', 'p-2', 'fs-5')
             div.appendChild(span)
-            console.log(contador);
-            console.log('fecha de gasto======>', (fechaGasto.textContent).split('-').reverse().join('-'));
         })
     }
     sincronizarLocalStogare()
