@@ -63,8 +63,9 @@ const enviarDatos = (e) => {
         pasajeRegreso: pasajeRegreso.value,
         otros: otros.value
     }
+    console.log('Fecha=========>', gasto.fecha);
+    console.log('fecha====================>', fecha);
     console.log('gastos',gasto);
-    console.log('fecha', fecha);
     mensaje('Registro agregado', 'exito')
     gastos = [...gastos, gasto]
     limpiarFormulario()
@@ -77,24 +78,24 @@ mostrarHtml = () => {
     if (gastos.length > 0) {
         gastos.forEach((gasto) => {
             const div = document.createElement('DIV')
-            const pIda = document.createElement('LI')
-            const pReg = document.createElement('LI')
-            const mIda = document.createElement('LI')
-            const mReg = document.createElement('LI')
-            const another = document.createElement('LI')
-            const fechaGasto = document.createElement('SPAN')
-            fechaGasto.textContent = `${gasto.fecha}`
+            const pIda = document.createElement('p')
+            const pReg = document.createElement('p')
+            const mIda = document.createElement('p')
+            const mReg = document.createElement('p')
+            const another = document.createElement('p')
+            const fechaGasto = document.createElement('p')
+            fechaGasto.textContent = `${gasto.fecha}`.split('-').reverse().join('-')
             pIda.textContent = `Camion de ida: ${gasto.pasajeIda}`
             mIda.textContent = `Metro de ida: ${gasto.metroIda}`
             mReg.textContent = `Metro de regreso: ${gasto.metroRegreso}`
             pReg.textContent = `Camion de regreso: ${gasto.pasajeRegreso}`
             another.textContent = `Otros: ${gasto.otros}`
-            div.classList.add('card')
-            pIda.classList.add('list-group-item')
-            pReg.classList.add('list-group-item')
-            mIda.classList.add('list-group-item')
-            mReg.classList.add('list-group-item')
-            another.classList.add('list-group-item')
+            div.classList.add('card', 'm-2')
+            // pIda.classList.add('list-group-item')
+            // pReg.classList.add('list-group-item')
+            // mIda.classList.add('list-group-item')
+            // mReg.classList.add('list-group-item')
+            // another.classList.add('list-group-item')
             fechaGasto.classList.add('badge', 'bg-success', 'p-2', 'fs-5')
             div.appendChild(fechaGasto)
             div.appendChild(pIda)
@@ -111,6 +112,7 @@ mostrarHtml = () => {
             span.classList.add('badge', 'bg-primary', 'p-2', 'fs-5')
             div.appendChild(span)
             console.log(contador);
+            console.log('fecha de gasto======>', (fechaGasto.textContent).split('-').reverse().join('-'));
         })
     }
     sincronizarLocalStogare()
