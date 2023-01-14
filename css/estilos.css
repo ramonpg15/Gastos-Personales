@@ -23,3 +23,7 @@ body {
 input{
     text-align: center;
 }
+
+.spacing-bottom {
+    margin-bottom: 1.5rem;
+}
